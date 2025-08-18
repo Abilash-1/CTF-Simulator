@@ -62,9 +62,16 @@ Running locally ensures:
 - **Challenge Screen**  
 - **Solve Attempt View**  
 - **Temporary Block Message**  
-
-*(Add screenshots or GIFs here)*  
-
+![Uploading 1.JPG…]()
+Welcome Screen
+![2](https://github.com/user-attachments/assets/3a35478a-0a17-4941-93be-d1d237a75801)
+Command Line
+![3](https://github.com/user-attachments/assets/9eb59f5b-2c88-4fe9-93e4-a120ca0fed25)
+HElP
+![4](https://github.com/user-attachments/assets/d3ec8cf3-2b40-434a-b7a8-6aa0da4a6ca4)
+CHALLENGE LIST
+![5](https://github.com/user-attachments/assets/cf97cb57-1906-461b-ba4f-a0a662efa085)
+FLAG SUBMISSION
 ---
 
 ## 🏁 Conclusion
