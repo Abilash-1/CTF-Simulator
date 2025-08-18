@@ -1,9 +1,5 @@
 \# 🕹️ CTF Challenge Simulator
 
-\!\[Python\](https://img.shields.io/badge/Python-3.8+-blue.svg)  
-\!\[Flask\](https://img.shields.io/badge/Flask-Framework-green.svg)  
-\!\[License\](https://img.shields.io/badge/License-MIT-yellow.svg)
-
 A lightweight and interactive \*\*CTF (Capture The Flag) Challenge Simulator\*\* built with \*\*Python Flask\*\*.    
 It’s designed to teach and test cybersecurity concepts like \*\*cryptography, steganography, and forensics\*\* in a safe, local environment.  
 
