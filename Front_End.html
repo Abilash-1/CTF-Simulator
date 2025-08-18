@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Simulator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-4">
+        <!-- Welcome Section -->
+        <header class="text-center py-8">
+            <h1 class="text-4xl font-bold text-blue-600">Welcome to CTF Simulator</h1>
+        </header>
+
+        <!-- What is a CTF Section -->
+        <section class="my-8 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">What is a CTF?</h2>
+            <p class="text-gray-600">
+                A Capture The Flag (CTF) is a cybersecurity competition where participants solve challenges to find hidden "flags" (secret strings, e.g., <code>CTF{example}</code>). Challenges cover areas like cryptography, web exploitation, forensics, steganography, and more. CTFs are typically:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mt-2">
+                <li><strong>Jeopardy-style</strong>: Solve independent tasks to earn points.</li>
+                <li><strong>Attack-Defense</strong>: Attack opponents' systems while defending your own.</li>
+                <li><strong>Mixed</strong>: Combine both formats.</li>
+            </ul>
+        </section>
+
+        <!-- Why is it Necessary Section -->
+        <section class="my-8 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Why is it Necessary?</h2>
+            <p class="text-gray-600">
+                CTFs are essential for learning and advancing in cybersecurity:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mt-2">
+                <li><strong>Skill Development</strong>: Practice real-world skills like coding, network analysis, and vulnerability exploitation.</li>
+                <li><strong>Problem-Solving</strong>: Enhance critical thinking and creativity in solving complex puzzles.</li>
+                <li><strong>Career Growth</strong>: Prepare for roles like penetration tester, security analyst, or forensic investigator.</li>
+                <li><strong>Community</strong>: Connect with cybersecurity enthusiasts and learn collaboratively.</li>
+                <li><strong>Safe Environment</strong>: Experiment with hacking techniques ethically and legally.</li>
+            </ul>
+        </section>
+
+        <!-- Challenge Interface -->
+        <section class="my-8 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">CTF Challenges</h2>
+            <p class="text-gray-600 mb-4">Enter commands below to interact with the CTF (e.g., HELP, LIST, CHALLENGE base64, SOLVE puzzle Paris).</p>
+            <div class="mb-4">
+                <input id="commandInput" type="text" class="w-full p-2 border rounded" placeholder="Enter command (e.g., HELP)" />
+                <button id="submitBtn" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Submit</button>
+            </div>
+            <pre id="response" class="bg-gray-100 p-4 rounded border text-gray-800 whitespace-pre-wrap">Responses will appear here...</pre>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', async () => {
+            const command = document.getElementById('commandInput').value;
+            if (!command) {
+                document.getElementById('response').textContent = 'Please enter a command.';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('command', command);
+
+            try {
+                const res = await fetch('/api/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                document.getElementById('response').textContent = data.response || data.error || 'Error: No response.';
+                document.getElementById('commandInput').value = '';
+            } catch (error) {
+                document.getElementById('response').textContent = 'Error: Unable to submit command.';
+            }
+        });
+    </script>
+</body>
+</html>
