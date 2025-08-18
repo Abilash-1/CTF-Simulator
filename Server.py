@@ -123,7 +123,7 @@ def index():
     try:
         ip = request.remote_addr
         logging.debug(f"Connection to / from {ip}")
-        return render_template('index.html')
+        return render_template('Front_End.html')
     except Exception as e:
         logging.error(f"Error rendering index.html: {str(e)}")
         return jsonify({"error": "Internal Server Error: Template issue"}), 500
@@ -242,3 +242,4 @@ if __name__ == '__main__':
     except Exception as e:
         logging.error(f"Server startup error: {str(e)}")
         print(f"Failed to start server: {str(e)}")
+
